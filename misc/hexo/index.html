@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>hexo|github|butterfly搭建美化博客 | Defy</title><meta name="keywords" content="misc"><meta name="author" content="notesp"><meta name="copyright" content="notesp"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="这个博客如何跑起来的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo|github|butterfly搭建美化博客">
+<meta property="og:url" content="https://esphere-dumal.github.io/misc/hexo/index.html">
+<meta property="og:site_name" content="Defy">
+<meta property="og:description" content="这个博客如何跑起来的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2020-12-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-29T08:28:14.984Z">
+<meta property="article:author" content="notesp">
+<meta property="article:tag" content="misc">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://esphere-dumal.github.io/misc/hexo/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-01-29 16:28:14'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/mark40.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="//"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/bg.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Defy</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">hexo|github|butterfly搭建美化博客</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-12-06T16:00:00.000Z" title="发表于 2020-12-07 00:00:00">2020-12-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-01-29T08:28:14.984Z" title="更新于 2021-01-29 16:28:14">2021-01-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/misc/">misc</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="hexo-github-butterfly搭建美化博客"><a href="#hexo-github-butterfly搭建美化博客" class="headerlink" title="hexo|github|butterfly搭建美化博客"></a>hexo|github|butterfly搭建美化博客</h1><h2 id="0x00-聊天局"><a href="#0x00-聊天局" class="headerlink" title="0x00 聊天局"></a>0x00 聊天局</h2><p>在我刚进入<code>UESTC</code>的时候，做工作室招新题时涉及到了一些搭建博客的内容，也用<code>hexo+github</code>搭了一个粗鄙的博客，但是对于美化这一件事一直在当🕊。结果，口怕的事情发生了，孩子的第一台虚拟机炸了，里面数据也无了（我当时铁傻子，忘了尝试恢复），再加之我清理了一波自己<code>github</code>仓库的内容，顺手就把原来的博客库清了。至此，我第一个博客的所有内容全部虚无<del>我也突然意识到我不需要博客，我需要一个能记东西的脑子</del>，所以就打算彻底咕咕博客内容。</p>
+<p>那么发生怎样更为口怕的事情让我决定重启博客计划呢？首先是隔壁🦈群<a target="_blank" rel="noopener" href="https://imgchr.com/i/DvWAKg"><img src="https://s3.ax1x.com/2020/12/07/DvWAKg.png" alt="DvWAKg.png"></a>转型成了一个科幻小说创造群<del>人均新建文件夹，老🕊了</del>，我觉得如果自己能写几篇短篇<del>（那必然是做梦）</del>可以顺手丢博客上；其次，是那个<a target="_blank" rel="noopener" href="https://imgchr.com/i/DvWrse"><img src="https://s3.ax1x.com/2020/12/07/DvWrse.png" alt="DvWrse.png"></a>即将发售的游戏大概率是不会再跳票了，作为孩子成年后第一款<code>3A</code>游戏，那必然得写点东西丢博客；最后，好像是应该把平时学的东西以某种方式存储一波，不然就是学完就忘问题很大。</p>
+<p>所以在GOGO狂牙大行动上线的那一个周末，我直接咕咕咕大行动开始嗯搭博客，在摸了大概10+h后，就有了你眼前现在这个博客。</p>
+<p>这是一篇逼逼赖赖+教学的博客，上面逼逼赖赖完了，下面可以讲一些正经的东西了。</p>
+<p>如果你用<code>linux</code>或者擅长使用windows,那么你应该可以跟着这篇博客轻松的搭建自己的博客。</p>
+<p>当然博客内容是有时间局限性的，对于文中涉及内容，请以官方内容为准。</p>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></p>
+<p><a target="_blank" rel="noopener" href="https://butterfly.js.org/">Butterfly - A Simple and Card UI Design theme for Hexo</a></p>
+<h2 id="0x01-配置git用户"><a href="#0x01-配置git用户" class="headerlink" title="0x01 配置git用户"></a>0x01 配置git用户</h2><h3 id="准备一个库"><a href="#准备一个库" class="headerlink" title="准备一个库"></a>准备一个库</h3><p><a target="_blank" rel="noopener" href="https://imgchr.com/i/Dvf2m4"><img src="https://s3.ax1x.com/2020/12/07/Dvf2m4.png" alt="Dvf2m4.png"></a></p>
+<p>这个库应该是公开的<code>public</code>,而且库的名字格式严格的为<code>git用户名.github.io</code></p>
+<h3 id="给github配ssh公钥"><a href="#给github配ssh公钥" class="headerlink" title="给github配ssh公钥"></a>给github配ssh公钥</h3><blockquote>
+<p>这里涉及到了ssh的内容，如果你并不知道ssh，那么你可以不求甚解的直接跟着下面的步骤完成配置</p>
+</blockquote>
+<p>首先在生成你设备的🔑<del>如果已有，可以忽略这一步</del></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br><span class="line">接着会要求输入生成的位置，默认为 ~&#x2F;.ssh&#x2F;id_rsa -C 邮箱地址</span><br><span class="line">以及一个🔑对应的密码，默认为空</span><br><span class="line"></span><br><span class="line">生成后cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br><span class="line">可以看到公钥的内容，复制它，然后在github上添加ssh公钥</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/DvhN36"><img src="https://s3.ax1x.com/2020/12/07/DvhN36.png" alt="DvhN36.png"></a><a target="_blank" rel="noopener" href="https://imgchr.com/i/DvhwuD"><img src="https://s3.ax1x.com/2020/12/07/DvhwuD.png" alt="DvhwuD.png"></a><a target="_blank" rel="noopener" href="https://imgchr.com/i/DvhBHH"><img src="https://s3.ax1x.com/2020/12/07/DvhBHH.png" alt="DvhBHH.png"></a>这里上面填一个你喜欢的名字，下面就是刚刚复制的公钥内容。</p>
+<p>接着继续处理git</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;github用户名&quot;</span><br><span class="line">git config --global user.email &quot;github邮箱&quot;</span><br><span class="line"></span><br><span class="line">ssh -T git@github.com</span><br><span class="line">出现下面提示则说明配上了</span><br><span class="line">Hi xxx! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+
+<p>至此<code>github</code>相关的操作就完成了</p>
+<h2 id="0x02-安装hexo-搭建一个简陋的博客"><a href="#0x02-安装hexo-搭建一个简陋的博客" class="headerlink" title="0x02 安装hexo 搭建一个简陋的博客"></a>0x02 安装hexo 搭建一个简陋的博客</h2><h3 id="hexo及相关组件安装"><a href="#hexo及相关组件安装" class="headerlink" title="hexo及相关组件安装"></a>hexo及相关组件安装</h3><h4 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h4><p><a target="_blank" rel="noopener" href="https://www.npmjs.com/">npm | build amazing things (npmjs.com)</a></p>
+<p><code>npm</code>是一个随同<code>Node.js</code>安装的包管理工具，而hexo是基于<code>Node.js</code>实现的，所以自然需要<code>npm</code>进行安装管理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm search  certain-thing 善于搜索相关包</span><br><span class="line"></span><br><span class="line">这是下文中所用到的相关组件</span><br><span class="line">npm install hexo-cli -g</span><br><span class="line">npm install hexo-deployer-git</span><br><span class="line">npm install hexo-generator-tag </span><br></pre></td></tr></table></figure>
+
+<h4 id="hexo简单使用"><a href="#hexo简单使用" class="headerlink" title="hexo简单使用"></a>hexo简单使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo init dir	将一个空文件夹初始化生成为博客文件，若没有，则会新建</span><br><span class="line">hexo generator  渲染</span><br><span class="line">hexo server &lt;-p 1230&gt; 在本地端口进行预览</span><br><span class="line">hexo deploy		部署</span><br></pre></td></tr></table></figure>
+
+<p>首先<code>hexo init</code>，此时会自动去<code>github</code>clone一个起步版本。</p>
+<h4 id="yaml"><a href="#yaml" class="headerlink" title="yaml"></a>yaml</h4><p><code>.yml</code>是一种类似json的配置文件</p>
+<blockquote>
+<p>与json一样大小写敏感</p>
+<p>与json使用{}嵌套表示层级关系不同，yaml缩进表示层级关系</p>
+<p>json中无注释，yaml中可用#标识注释行</p>
+</blockquote>
+<p>其中<code>_config.yml</code>是配置文件，对其修改，添加<code>deploy</code>条目相关信息</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://github.com/xxx/xxx.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span>            </span><br></pre></td></tr></table></figure>
+
+<p>此时，已经可以通过<code>hexo g &amp;&amp; hexo d</code>进行部署</p>
+<h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><p>博客根目录下<code>source</code>文件夹中<code>_post</code>中存放文章 <code>.md</code>文件</p>
+<p>同时<code>source</code>下也会存储<code>tags  catelogeries</code>等页面信息</p>
+<h4 id="文章标识"><a href="#文章标识" class="headerlink" title="文章标识"></a>文章标识</h4><p>在每一篇<code>.md</code>文章的开头部分以<code>---</code>分割一个区域，里面记录一篇文章的相关信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: A</span><br><span class="line">date: year.month.day</span><br><span class="line">description: some words</span><br><span class="line">tags: some_tag</span><br><span class="line">top_img: a_picture_in_&#x2F;img&#x2F;</span><br><span class="line">---</span><br><span class="line">xxxxx</span><br><span class="line">xxxxx</span><br></pre></td></tr></table></figure>
+
+<h4 id="发布一篇文章"><a href="#发布一篇文章" class="headerlink" title="发布一篇文章"></a>发布一篇文章</h4><p>将文章前加上相关标识内容，接着就可以丢进<code>/source/_post/ </code>就行了，最后<code>hexo g &amp;&amp; hexo d</code></p>
+<h2 id="0x03-安装butterfly主题美化博客"><a href="#0x03-安装butterfly主题美化博客" class="headerlink" title="0x03 安装butterfly主题美化博客"></a>0x03 安装butterfly主题美化博客</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone -b master https:&#x2F;&#x2F;github.com&#x2F;jerryc127&#x2F;hexo-theme-butterfly.git themes&#x2F;butterfly</span><br><span class="line"></span><br><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+
+<p>接着你会在博客根目录下<code>theme</code>文件夹中多出一个<code>butterfly</code>,将其中的<code>_config.yml</code>文件拷贝至根目录下改名为<code>_config.butterfly.yml</code>然后就可以对里面的内容进行修改实现自定义。</p>
+<p>这部分具体内容可以参考<del>主要不想写了，当🕊咕咕咕咕</del></p>
+<p><a target="_blank" rel="noopener" href="https://butterfly.js.org/">Butterfly - A Simple and Card UI Design theme for Hexo</a></p>
+<h2 id="0x04-唔"><a href="#0x04-唔" class="headerlink" title="0x04 唔"></a>0x04 唔</h2><p>到这里，你应该已经跑一个博客了，但是你仍然有许多事情可以进行做，比如说进一步美化你的博客，甚至是给你的博客加上一些自动化技术，让他可以实现自动化部署。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">notesp</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://esphere-dumal.github.io/misc/hexo/">https://esphere-dumal.github.io/misc/hexo/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://esphere-dumal.github.io" target="_blank">Defy</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/misc/">misc</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/c/C++%E4%B8%80%E4%BA%9B%E7%89%B9%E6%80%A7/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C++一些特性</div></div></a></div><div class="next-post pull-right"><a href="/docker/Docker/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">docker初期学习笔记</div></div></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/mark40.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">notesp</div><div class="author-info__description">|UESTC|Glimmer|CNSS</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="//"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/esphere-dumal"><i class="fab fa-github"></i><span>check me at the github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://steamcommunity.com/id/esphere-dumal/" target="_blank" title="steam"><i class="fab fa-steam"></i></a><a class="social-icon" href="mailto:esphere@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">这个博客还在搭建中，现在内容很少，呜呜</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo-github-butterfly%E6%90%AD%E5%BB%BA%E7%BE%8E%E5%8C%96%E5%8D%9A%E5%AE%A2"><span class="toc-number">1.</span> <span class="toc-text">hexo|github|butterfly搭建美化博客</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x00-%E8%81%8A%E5%A4%A9%E5%B1%80"><span class="toc-number">1.1.</span> <span class="toc-text">0x00 聊天局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-%E9%85%8D%E7%BD%AEgit%E7%94%A8%E6%88%B7"><span class="toc-number">1.2.</span> <span class="toc-text">0x01 配置git用户</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E4%B8%80%E4%B8%AA%E5%BA%93"><span class="toc-number">1.2.1.</span> <span class="toc-text">准备一个库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99github%E9%85%8Dssh%E5%85%AC%E9%92%A5"><span class="toc-number">1.2.2.</span> <span class="toc-text">给github配ssh公钥</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-%E5%AE%89%E8%A3%85hexo-%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E9%99%8B%E7%9A%84%E5%8D%9A%E5%AE%A2"><span class="toc-number">1.3.</span> <span class="toc-text">0x02 安装hexo 搭建一个简陋的博客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo%E5%8F%8A%E7%9B%B8%E5%85%B3%E7%BB%84%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">1.3.1.</span> <span class="toc-text">hexo及相关组件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#npm"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">npm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">hexo简单使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#yaml"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">yaml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.1.4.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E6%A0%87%E8%AF%86"><span class="toc-number">1.3.1.5.</span> <span class="toc-text">文章标识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B8%83%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0"><span class="toc-number">1.3.1.6.</span> <span class="toc-text">发布一篇文章</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03-%E5%AE%89%E8%A3%85butterfly%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%E5%8D%9A%E5%AE%A2"><span class="toc-number">1.4.</span> <span class="toc-text">0x03 安装butterfly主题美化博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04-%E5%94%94"><span class="toc-number">1.5.</span> <span class="toc-text">0x04 唔</span></a></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/lab/6.s081_lab2/" title="6.s081 lab2">6.s081 lab2</a><time datetime="2021-05-06T16:00:00.000Z" title="发表于 2021-05-07 00:00:00">2021-05-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/lab/6.s081_lab1/" title="6.s081 lab1">6.s081 lab1</a><time datetime="2021-04-10T16:00:00.000Z" title="发表于 2021-04-11 00:00:00">2021-04-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/c/Qt%20%E4%BB%8E0%E5%88%B00.5/" title="Qt 从0到0.5">Qt 从0到0.5</a><time datetime="2021-03-07T16:00:00.000Z" title="发表于 2021-03-08 00:00:00">2021-03-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/lab/%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%E5%A4%A7%E6%9D%82%E7%83%A9/" title="CS:app3e_final_part">CS:app3e_final_part</a><time datetime="2021-03-02T16:00:00.000Z" title="发表于 2021-03-03 00:00:00">2021-03-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/c/UNIX&amp;socket/" title="UNIX&amp;socket">UNIX&amp;socket</a><time datetime="2021-02-25T16:00:00.000Z" title="发表于 2021-02-26 00:00:00">2021-02-26</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By notesp</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">cest esphere's teporary blog</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script></div></body></html>

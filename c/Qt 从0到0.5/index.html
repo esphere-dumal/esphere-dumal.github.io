@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Qt 从0到0.5 | Defy</title><meta name="keywords" content="c,qt"><meta name="author" content="notesp"><meta name="copyright" content="notesp"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="qt 0-0.5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qt 从0到0.5">
+<meta property="og:url" content="https://esphere-dumal.github.io/c/Qt%20%E4%BB%8E0%E5%88%B00.5/index.html">
+<meta property="og:site_name" content="Defy">
+<meta property="og:description" content="qt 0-0.5">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-03-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-04-11T12:53:09.160Z">
+<meta property="article:author" content="notesp">
+<meta property="article:tag" content="c">
+<meta property="article:tag" content="qt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://esphere-dumal.github.io/c/Qt%20%E4%BB%8E0%E5%88%B00.5/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-04-11 20:53:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/mark40.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="//"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/bg.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Defy</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Qt 从0到0.5</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-03-07T16:00:00.000Z" title="发表于 2021-03-08 00:00:00">2021-03-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-04-11T12:53:09.160Z" title="更新于 2021-04-11 20:53:09">2021-04-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/c/">c</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/c/qt/">qt</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Qt-从0到0-5"><a href="#Qt-从0到0-5" class="headerlink" title="Qt 从0到0.5"></a>Qt 从0到0.5</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>可以把Qt理解为一种开发生态环境，Qt提供了一系列工具、集成库帮助开发者完成带GUI软件的开发流程。从界面UI设计到底层代码逻辑，再到编译发布，都能使用Qt进行便捷的开发。目前，Qt主要支持c++和python。</p>
+<p>在开发客户端的过程中，UI的设计开发和代码实现同样复杂重要，而Qt提供了<code>Qt Designer</code> ,将UI的设计以组件的形式可视化，方便、直观，同时易于调整参数并且与代码进行对接。</p>
+<h2 id="学习方向"><a href="#学习方向" class="headerlink" title="学习方向"></a>学习方向</h2><p>深入学习Qt，需要有一定的c++（毕竟Qt面向对象）或 python 基础。</p>
+<ul>
+<li>了解Qt工程项目的文件组成</li>
+<li>了解 qt designer，便于进行GUI的设计开发，以及GUI组件与代码的对接</li>
+<li>熟悉 qt 的一些库，包括一下几个方面<ul>
+<li>qt 内置对象</li>
+<li>信号与槽 | 事件 （算是Qt的核心内容了</li>
+<li>各种轮子</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>qt 整体上是c++，但是和常规的 c++ 有所区别，需要认识其差异以及应用场合的不同</p>
+<p>比如说 <code>QString</code> 和 <code>string</code> <code>QFile</code>和<code>std::fstream</code></p>
+<p>但是这些东西肯定很难记在脑子里面，所以还得学会合理使用文档、搜索引擎，让开发的过程变成学习的过程</p>
+</blockquote>
+<h2 id="项目文件"><a href="#项目文件" class="headerlink" title="项目文件"></a>项目文件</h2><p>![image.png](Qt 从0到0.5.assets/GuQwBpdoiChDT7y.png) 这是一个简单的 Qt 工程项目文件。其中Headers和Sources就是我们熟悉的c++的那套头文件模式</p>
+<p><code>.pro</code>文件是Qt的工程文件，可以理解为<code>cmake 或 makefile</code>一类的存在</p>
+<p><code>Forms下的.ui</code>文件是一个类似<code>Xml</code>的标签式的文件，其中包含了GUI的各个组件。</p>
+<p>简单的Qt工程项目目录结构如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.pro</span><br><span class="line">Headers</span><br><span class="line">    ----</span><br><span class="line">Sources</span><br><span class="line">    ----</span><br><span class="line">Forms</span><br><span class="line">    ----</span><br><span class="line">&lt;Resources&gt;  非必须的其他资源文件</span><br><span class="line">    ----</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="GUI-设计"><a href="#GUI-设计" class="headerlink" title="GUI 设计"></a>GUI 设计</h2><p>首先应该介绍一下GUI的一般组成模式</p>
+<ul>
+<li>最顶层的是<code>title line</code>，也就是进程名相关的东西</li>
+<li>顶层下面一层一般有一行菜单栏，比如说<em>文件 编辑 段落 格式 视图 主题 帮助</em><del>对，就是typora的菜单栏</del>这样的设置一类的东西</li>
+<li>左右上下内环（一般在左侧）有工具栏，包括一些常用功能</li>
+<li>中央区域就是主视图了</li>
+<li>最下面一般有一行状态栏，提供一些信息</li>
+</ul>
+<blockquote>
+<p>讲真画图软件是个很典型的例子 </p>
+</blockquote>
+<p>![image.png](Qt 从0到0.5.assets/qv5ks8VU6eTK37m.png) </p>
+<p>Qt提供了很多组件，可以以可视化的方式生成XML文件来构成GUI界面。这些组件会成为Cpp源码里面一个ui对象的属性。</p>
+<p>在<code>ui designer</code>中可以对组件进行命名和参数调整，命名是为了更好的与代码逻辑对接（也就是待会要说的信号与槽了）。</p>
+<h2 id="代码开发"><a href="#代码开发" class="headerlink" title="代码开发"></a>代码开发</h2><p>完成了UI的设计，就要在代码层面实现各个组件之间的逻辑关系了。</p>
+<p>qt是有很强的面向对象的性质，所以使用Qt的过程其实很多时候是在查文档，查文档，重载函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;notepad.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QApplication&gt;</span></span></span><br><span class="line"><span class="comment">// 实现好 Notepad 类， 就能跑了</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QApplication <span class="title">EditterApp</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line">    Notepad editter;</span><br><span class="line"></span><br><span class="line">    editter.show();</span><br><span class="line">    <span class="keyword">return</span> EditterApp.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="信号与槽"><a href="#信号与槽" class="headerlink" title="信号与槽"></a>信号与槽</h3><p>应用程序的最简单的模式就是：<em>点击这个，呈现那个</em>，而Qt提供了信号来对应<em>点击这个</em>，用槽来对应<em>实现那个</em>。则就是Qt中重要的信号与槽机制(signal and slot)。<em>这个设定，很难不让人想起异常控制流中的内容，unix中的signal机制</em></p>
+<p>所以我们需要给某个信号和某种处理函数关联起来</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Notepad 类的定义c++</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Notepad</span> :</span> <span class="keyword">public</span> QMainWindow</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Notepad(QWidget *parent = <span class="literal">nullptr</span>);</span><br><span class="line">    ~Notepad();</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">wheelEvent</span><span class="params">(QWheelEvent *event)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> slots:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">open</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">saveAs</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">bold</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// if text is modified, change titie name into xxx*</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">on_textEdit_cursorPositionChanged</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Ui::Notepad *ui;</span><br><span class="line">    QString currentFile;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>从这个<code>notepad</code>类很像普通的cpp类，但是多了一些东西，比如说<code>private slots</code>，这就是需要实现的槽，在接收到某些信号之后处理一些事务。信号的来源一般都是ui中的组件（<em>”点击这个“</em>），一般在构造函数中，我们将信号与槽绑定起来。（当然，可以在其他的地方绑定，根据具体实现即可，在构造函数中绑定将使信号具有<em>普遍性</em>效果）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Notepad::Notepad(QWidget *parent)</span><br><span class="line">    : QMainWindow(parent)</span><br><span class="line">    , ui(<span class="keyword">new</span> Ui::Notepad)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;setupUi(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>-&gt;setCentralWidget(ui-&gt;textEdit);</span><br><span class="line"></span><br><span class="line">    connect(ui-&gt;actionOpen, &amp;QAction::triggered, <span class="keyword">this</span>, &amp;Notepad::open);</span><br><span class="line">    connect(ui-&gt;actionSave, &amp;QAction::triggered, <span class="keyword">this</span>, &amp;Notepad::save);</span><br><span class="line">    connect(ui-&gt;actionSaveAs, &amp;QAction::triggered, <span class="keyword">this</span>, &amp;Notepad::saveAs);</span><br><span class="line">    connect(ui-&gt;actionBold, &amp;QAction::triggered, <span class="keyword">this</span>, &amp;Notepad::bold);</span><br><span class="line"></span><br><span class="line">    connect(ui-&gt;textEdit, SIGNAL(textEdit(QString&amp;)), <span class="keyword">this</span>, SLOT(on_textEdit_cursorPositionChanged));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>connect</code>函数实现了<code>sender signal receiver slot</code>的绑定，（<code>disconnect</code>可以解绑）。在ui组件中的信号一般都是某种<code>QAction</code>。</p>
+<p>这里我们能看到Qt的两种绑定方式，其中第二种（宏定义方法）更适合带参数的<code>non static</code>信号。</p>
+<blockquote>
+<p>组件中的触发机制不仅仅是点击，还可以加上一些<code>short cut</code></p>
+</blockquote>
+<h3 id="事件机制"><a href="#事件机制" class="headerlink" title="事件机制"></a>事件机制</h3><p>但是某些适合驱动应用程序运作的不一定是组件的信号，而是一些其他的机制，比如说<strong>滚动滚轮实现界面的缩放</strong>，<strong>按住ctrl激活一些功能</strong>。这时需要使用事件机制。事件类似于信号，但是无需完成<em>信号与槽</em>的绑定过程，而是一旦触发就会进入处理机制，可以在置于类中的<code>protect</code>函数，然后重载功能。比如说，上文提供的<code>Notepad</code>类中重载了一个<code>wheelEvent</code>，将对鼠标滑轮的某些反应做出反应。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *  override the mouseWheelEvent zoom in and out</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Notepad::wheelEvent</span><span class="params">(QWheelEvent *event)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(event-&gt;angleDelta().y() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        ui-&gt;textEdit-&gt;zoomIn();</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(event-&gt;angleDelta().y() &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        ui-&gt;textEdit-&gt;zoomOut();</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p>Qt核心内容基本就简单介绍完了，其他内容本质上就是Qt造好的轮子，在开发时根据需求查询使用即可，而且Qt内置了非常方便的文档。多写写，自然就熟了<del>吧</del></p>
+<p>简单的记录了一些qt入门的笔记，也许以后有空会来补一些qt复杂的作用相关的博客吧（</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">notesp</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://esphere-dumal.github.io/c/Qt%20%E4%BB%8E0%E5%88%B00.5/">https://esphere-dumal.github.io/c/Qt%20%E4%BB%8E0%E5%88%B00.5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://esphere-dumal.github.io" target="_blank">Defy</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/c/">c</a><a class="post-meta__tags" href="/tags/qt/">qt</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/lab/6.s081_lab1/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">6.s081 lab1</div></div></a></div><div class="next-post pull-right"><a href="/lab/%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%E5%A4%A7%E6%9D%82%E7%83%A9/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CS:app3e_final_part</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/c/Link/" title="link"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-16</div><div class="title">link</div></div></a></div><div><a href="/c/UNIX&socket/" title="UNIX&socket"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-26</div><div class="title">UNIX&socket</div></div></a></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/mark40.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">notesp</div><div class="author-info__description">|UESTC|Glimmer|CNSS</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="//"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/esphere-dumal"><i class="fab fa-github"></i><span>check me at the github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://steamcommunity.com/id/esphere-dumal/" target="_blank" title="steam"><i class="fab fa-steam"></i></a><a class="social-icon" href="mailto:esphere@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">这个博客还在搭建中，现在内容很少，呜呜</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Qt-%E4%BB%8E0%E5%88%B00-5"><span class="toc-number">1.</span> <span class="toc-text">Qt 从0到0.5</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E6%96%B9%E5%90%91"><span class="toc-number">1.2.</span> <span class="toc-text">学习方向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">项目文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUI-%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.4.</span> <span class="toc-text">GUI 设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91"><span class="toc-number">1.5.</span> <span class="toc-text">代码开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD"><span class="toc-number">1.5.1.</span> <span class="toc-text">信号与槽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6"><span class="toc-number">1.5.2.</span> <span class="toc-text">事件机制</span></a></li></ol></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/lab/6.s081_lab2/" title="6.s081 lab2">6.s081 lab2</a><time datetime="2021-05-06T16:00:00.000Z" title="发表于 2021-05-07 00:00:00">2021-05-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/lab/6.s081_lab1/" title="6.s081 lab1">6.s081 lab1</a><time datetime="2021-04-10T16:00:00.000Z" title="发表于 2021-04-11 00:00:00">2021-04-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/c/Qt%20%E4%BB%8E0%E5%88%B00.5/" title="Qt 从0到0.5">Qt 从0到0.5</a><time datetime="2021-03-07T16:00:00.000Z" title="发表于 2021-03-08 00:00:00">2021-03-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/lab/%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%E5%A4%A7%E6%9D%82%E7%83%A9/" title="CS:app3e_final_part">CS:app3e_final_part</a><time datetime="2021-03-02T16:00:00.000Z" title="发表于 2021-03-03 00:00:00">2021-03-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/c/UNIX&amp;socket/" title="UNIX&amp;socket">UNIX&amp;socket</a><time datetime="2021-02-25T16:00:00.000Z" title="发表于 2021-02-26 00:00:00">2021-02-26</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By notesp</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">cest esphere's teporary blog</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script></div></body></html>
